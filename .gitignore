@@ -1,0 +1,5 @@
+build/
+template/*
+!template/go-*/
+!template/dockerfile-*/
+!template/node8-express-*/

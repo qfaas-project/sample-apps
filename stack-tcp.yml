@@ -1,0 +1,21 @@
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+
+functions:
+  qfaas-certinfo:
+    lang: go
+    handler: ./certinfo
+    image: posoo/qfaas-certinfo:tcp-v1
+  qfaas-dockerhubstats:
+    lang: dockerfile
+    handler: ./dockerhubstats
+    image: posoo/qfaas-dockerhubstats:tcp-v1
+  qfaas-imageresizer:
+    lang: node8-express
+    handler: ./imageresizer
+    image: posoo/qfaas-imageresizer:tcp-v1
+    environment:
+      read_timeout: "10s"
+      write_timeout: "10s"
+      exec_timeout: "10s"
